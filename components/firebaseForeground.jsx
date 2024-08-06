@@ -20,5 +20,10 @@ export default function FcmTokenComp() {
     }
   }, [notificationPermissionStatus]);
 
-  return <h1>token: {token}</h1>; // This component is primarily for handling foreground notifications
+  return (
+    <div>
+      <h1>token: {token}</h1>
+      <h3>notificationPermissionStatus: {notificationPermissionStatus}</h3>
+    </div>
+  );
 }

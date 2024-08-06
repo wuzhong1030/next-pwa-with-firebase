@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>web-push-with-firebase11</h1>
+      <h1>web-push-with-firebase fuck</h1>
       <FcmTokenComp />
       {/* <button onClick={notif}>Notification</button>
       <div>token: {token}</div>
