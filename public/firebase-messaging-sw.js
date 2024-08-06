@@ -8,7 +8,7 @@ importScripts("https://www.gstatic.com/firebasejs/5.9.4/firebase-messaging.js");
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAZ5O1TyMSp_G7Aiqa_x8LXUBB7a9r3Ad8",
-  // authDomain: "next-pwa-with-firebase.firebaseapp.com",
+  authDomain: "next-pwa-with-firebase.vercel.app",
   projectId: "next-pwa-with-firebase",
   // storageBucket: "next-pwa-with-firebase.appspot.com",
   messagingSenderId: "83448491839",
