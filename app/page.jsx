@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      fuck111111122211
+      fuck
       {updateAvailable && (
         <div className="update-notification">
           <p>新的更新已准备好。请刷新页面以应用更新。</p>

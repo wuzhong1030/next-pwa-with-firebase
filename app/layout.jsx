@@ -21,7 +21,7 @@ import "./globals.css";
 //   ],
 // };
 
-const APP_NAME = "next-pwa example";
+const APP_NAME = "next-pwa-with-firebase example";
 const APP_DESCRIPTION = "This is an example of using next-pwa plugin";
 
 export default function RootLayout({ children }) {
