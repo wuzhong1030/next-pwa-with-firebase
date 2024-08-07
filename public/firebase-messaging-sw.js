@@ -21,35 +21,34 @@ firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage((payload) => {
-  console.log("[firebase-messaging-sw.js] Received background message ", payload);
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: "./icons/icon-48x48.png",
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
-});
-
-// messaging.setBackgroundMessageHandler(function (payload) {
-//   const promiseChain = clients
-//     .matchAll({
-//       type: "window",
-//       includeUncontrolled: true,
-//     })
-//     .then((windowClients) => {
-//       for (let i = 0; i < windowClients.length; i++) {
-//         const windowClient = windowClients[i];
-//         windowClient.postMessage(payload);
-//       }
-//     })
-//     .then(() => {
-//       return self.registration.showNotification("my notification title");
-//     });
-//   return promiseChain;
+// messaging.onBackgroundMessage((payload) => {
+//   console.log("[firebase-messaging-sw.js] Received background message ", payload);
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//     body: payload.notification.body,
+//     icon: "./icons/icon-48x48.png",
+//   };
+//   self.registration.showNotification(notificationTitle, notificationOptions);
 // });
+
+messaging.setBackgroundMessageHandler(function (payload) {
+  const promiseChain = clients
+    .matchAll({
+      type: "window",
+      includeUncontrolled: true,
+    })
+    .then((windowClients) => {
+      for (let i = 0; i < windowClients.length; i++) {
+        const windowClient = windowClients[i];
+        windowClient.postMessage(payload);
+      }
+    })
+    .then(() => {
+      return self.registration.showNotification("my notification title");
+    });
+  return promiseChain;
+});
 
 self.addEventListener("notificationclick", function (event) {
   // do what you want
-  // ...
 });
