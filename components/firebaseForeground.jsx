@@ -22,7 +22,7 @@ export default function FcmTokenComp() {
 
   return (
     <div className="w-full p-2">
-      <button className="px-3 py-2 bg-blue-300 text-white rounded-lg" onClick={retrieveToken}>retrieveToken</button>
+      <button className="px-3 py-2 bg-blue-600 text-white rounded-lg" onClick={retrieveToken}>retrieveToken</button>
       <h1>token: </h1>
       <textarea className="w-full border-black border-2" value={token} name="textarea" id="textarea"></textarea>
       <h3>notificationPermissionStatus: {notificationPermissionStatus}</h3>

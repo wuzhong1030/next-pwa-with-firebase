@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import firebaseApp from "@/lib/firebase";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import FcmTokenComp from "@/components/firebaseForeground";
+import InstallationPrompt from "@/components/InstallationPrompt";
 
 export default function Home() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
@@ -121,6 +122,8 @@ export default function Home() {
       <h1>web-push-with-firebase demo1</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
+
+      <InstallationPrompt />
     </main>
   );
 }
