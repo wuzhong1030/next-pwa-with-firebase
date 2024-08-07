@@ -5,11 +5,13 @@ import firebaseApp from "@/lib/firebase";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import FcmTokenComp from "@/components/firebaseForeground";
 import InstallationPrompt from "@/components/InstallationPrompt";
+import useUserAgent from "@/hooks/useUserAgent";
 
 export default function Home() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   // const [token, setToken] = useState("null");
   const [msg, setMsg] = useState("null");
+  const { isStandalone } = useUserAgent();
   // const [messaging, setMessaging] = useState();
 
   useEffect(() => {
@@ -122,8 +124,7 @@ export default function Home() {
       <h1>web-push-with-firebase demo1</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
-
-      <InstallationPrompt />
+      {isStandalone !== null && isStandalone ? <InstallationPrompt /> : null}
     </main>
   );
 }
