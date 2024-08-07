@@ -12,6 +12,35 @@ const InstallationPrompt = (props) => {
     });
   });
 
+  const logMessage = (message) => {
+    console.log(message);
+    document.getElementById("events-area").value += `>: ${message}\r\n`;
+  };
+
+  useEffect(() => {
+    if (pwaInstallRef.current) {
+      const pwaInstall = pwaInstallRef.current;
+      pwaInstall.addEventListener("pwa-install-success-event", (event) => {
+        logMessage(event.detail.message);
+      });
+      pwaInstall.addEventListener("pwa-install-fail-event", (event) => {
+        logMessage(event.detail.message);
+      });
+      pwaInstall.addEventListener("pwa-user-choice-result-event", (event) => {
+        logMessage(event.detail.message);
+      });
+      pwaInstall.addEventListener("pwa-install-available-event", (event) => {
+        logMessage(event.detail.message);
+      });
+      pwaInstall.addEventListener("pwa-install-how-to-event", (event) => {
+        logMessage(event.detail.message);
+      });
+      pwaInstall.addEventListener("pwa-install-gallery-event", (event) => {
+        logMessage(event.detail.message);
+      });
+    }
+  }, []);
+
   return (
     // <div className={`${!isStandalone ? "block" : "hidden"}`}>
     <div>
@@ -26,6 +55,7 @@ const InstallationPrompt = (props) => {
       >
         Instructions
       </button>
+      <textarea readonly id="events-area" rows="10"></textarea>
     </div>
   );
 };
