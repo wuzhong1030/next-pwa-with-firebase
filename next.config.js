@@ -12,8 +12,7 @@ const nextConfig = {
 // Configuration object tells the next-pwa plugin
 const withPWA = require("next-pwa")({
   dest: "public", // Destination directory for the PWA files
-  //   disable: process.env.NODE_ENV === "development", // Disable PWA in development mode
-  disable: false,
+  disable: process.env.NODE_ENV === "development", // Disable PWA in development mode
   runtimeCaching,
   // buildExcludes: [
   //   /chunks\/images\/.*$/, // Don't precache files under .next/static/chunks/images this improves next-optimized-images behaviour
