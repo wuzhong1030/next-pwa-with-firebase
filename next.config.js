@@ -14,6 +14,7 @@ const withPWA = require("next-pwa")({
   dest: "public", // Destination directory for the PWA files
   disable: process.env.NODE_ENV === "development", // Disable PWA in development mode
   runtimeCaching,
+  exclude: [/app-build-manifest.json/],
   // buildExcludes: [
   //   /chunks\/images\/.*$/, // Don't precache files under .next/static/chunks/images this improves next-optimized-images behaviour
   //   /chunks\/pages\/api\/.*/, // Dont cache the API it needs fresh serverinfo
