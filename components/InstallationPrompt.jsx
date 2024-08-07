@@ -8,8 +8,8 @@ const InstallationPrompt = (props) => {
 
   useEffect(() => {
     import("@khmyznikov/pwa-install").then(() => {
-        pwaInstallRef.current?.showDialog(true)
-    })
+      // pwaInstallRef.current?.showDialog(true)
+    });
   });
 
   return (
