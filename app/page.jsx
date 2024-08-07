@@ -8,17 +8,17 @@ import FcmTokenComp from "@/components/firebaseForeground";
 export default function Home() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   // const [token, setToken] = useState("null");
-  // const [msg, setMsg] = useState("null");
+  const [msg, setMsg] = useState("null");
   // const [messaging, setMessaging] = useState();
 
-  // useEffect(() => {
-  //   const messaging = getMessaging(firebaseApp);
-  //   setMessaging(messaging);
+  useEffect(() => {
+    const messaging = getMessaging(firebaseApp);
+    // setMessaging(messaging);
 
-  //   onMessage(messaging, () => {
-  //     setMsg("fuck.....");
-  //   });
-  // }, []);
+    onMessage(messaging, () => {
+      setMsg("fuck.....");
+    });
+  }, []);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -114,9 +114,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between rounded-lg gap-4">
       <h1>web-push-with-firebase demo</h1>
       <FcmTokenComp />
-      {/* <button onClick={notif}>Notification</button>
-      <div>token: {token}</div>
-      <h5>msg: {msg}</h5> */}
+      <h5>msg: {msg}</h5>
     </main>
   );
 }
