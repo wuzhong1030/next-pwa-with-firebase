@@ -8,7 +8,7 @@ import InstallationPrompt from "@/components/InstallationPrompt";
 import useUserAgent from "@/hooks/useUserAgent";
 
 export default function Home() {
-  const [updateAvailable, setUpdateAvailable] = useState(false);
+  // const [updateAvailable, setUpdateAvailable] = useState(false);
   // const [token, setToken] = useState("null");
   const [msg, setMsg] = useState("null");
   const { isStandalone } = useUserAgent();
@@ -40,48 +40,48 @@ export default function Home() {
         setMsg("messaging push");
       });
 
-      const onUpdateReady = (registration) => {
-        registration.onupdatefound = () => {
-          const installingWorker = registration.installing;
-          if (installingWorker) {
-            installingWorker.onstatechange = () => {
-              if (installingWorker.state === "installed") {
-                if (navigator.serviceWorker.controller) {
-                  setUpdateAvailable(true); // 新版本可用
-                }
-              }
-            };
-          }
-        };
-      };
+      // const onUpdateReady = (registration) => {
+      //   registration.onupdatefound = () => {
+      //     const installingWorker = registration.installing;
+      //     if (installingWorker) {
+      //       installingWorker.onstatechange = () => {
+      //         if (installingWorker.state === "installed") {
+      //           if (navigator.serviceWorker.controller) {
+      //             setUpdateAvailable(true); // 新版本可用
+      //           }
+      //         }
+      //       };
+      //     }
+      //   };
+      // };
 
-      navigator.serviceWorker.ready
-        .then((registration) => {
-          onUpdateReady(registration);
-        })
-        .catch((error) => {
-          console.error("Error during service worker registration:", error);
-        });
+      // navigator.serviceWorker.ready
+      //   .then((registration) => {
+      //     onUpdateReady(registration);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error during service worker registration:", error);
+      //   });
 
       // Register Service Worker if not already registered
-      if (!navigator.serviceWorker.controller) {
-        console.log("navigator.serviceWorker.register");
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((registration) => {
-            onUpdateReady(registration);
-          })
-          .catch((error) => {
-            console.error("Error during service worker registration:", error);
-          });
-      }
+      // if (!navigator.serviceWorker.controller) {
+      //   console.log("navigator.serviceWorker.register");
+      //   navigator.serviceWorker
+      //     .register("/sw.js")
+      //     .then((registration) => {
+      //       onUpdateReady(registration);
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error during service worker registration:", error);
+      //     });
+      // }
 
       // Listen for messages from the service worker
-      navigator.serviceWorker.addEventListener("message", (event) => {
-        if (event.data && event.data.type === "UPDATE_READY") {
-          setUpdateAvailable(true);
-        }
-      });
+      // navigator.serviceWorker.addEventListener("message", (event) => {
+      //   if (event.data && event.data.type === "UPDATE_READY") {
+      //     setUpdateAvailable(true);
+      //   }
+      // });
     }
   }, []);
 
@@ -121,10 +121,10 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between rounded-lg gap-4">
-      <h1>web-push-with-firebase demo1</h1>
+      <h1>web-push-with-firebase demo2</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
-      {isStandalone !== null && isStandalone ? null : <InstallationPrompt />}
+      {isStandalone !== null ? isStandalone ? null : <InstallationPrompt /> : null}
     </main>
   );
 }
