@@ -17,7 +17,7 @@ const useFcmToken = () => {
 
         if (permission === "granted") {
           const currentToken = await getToken(messaging, {
-            vapidKey: "BO-PyAKSc9jctgPYma0CKkLBc7m1KAisA6f3f9cakvEKgggn_jgROun1vJiJvDC962YEPaRyFuhi-bI_n6fc18I", // Replace with your Firebase project's VAPID key
+            vapidKey: "BAGI883fqX5-EZoBMGVYSxGZyJzB7klsS5-m7gO-qNaHY351YaUE9apj2VIt921cyFrAB-zhqNRTdLeT8x8xuio", // Replace with your Firebase project's VAPID key
           });
           if (currentToken) {
             setToken(currentToken);
