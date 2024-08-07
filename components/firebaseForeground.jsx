@@ -32,7 +32,7 @@ export default function FcmTokenComp() {
       <h1>token: </h1>
       <textarea readOnly className="w-full border-black border-2" value={token}></textarea>
       <h3>notificationPermissionStatus: {notificationPermissionStatus}</h3>
-      <h4>payload: {JSON.stringify(payload)}</h4>
+      {/* <h4>payload: {JSON.stringify(payload)}</h4> */}
     </div>
   );
 }
