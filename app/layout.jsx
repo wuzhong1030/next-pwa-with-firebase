@@ -20,7 +20,7 @@ export const metadata = {
     capable: true,
     statusBarStyle: "default",
     title: siteConfig.name,
-    startupImage: ["/icons/icon-96x96.png"],
+    startupImage: ["/screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png"],
   },
   referrer: "origin-when-cross-origin",
   formatDetection: {
