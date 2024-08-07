@@ -31,6 +31,12 @@ export default function Home() {
       //     console.log("Service worker registration failed, error:", err);
       //   });
 
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        console.log("Received a message from service worker:", event.data);
+        // 处理收到的消息
+        alert(`Message from service worker: ${event.data.msg}`);
+      });
+
       const onUpdateReady = (registration) => {
         registration.onupdatefound = () => {
           const installingWorker = registration.installing;
@@ -112,7 +118,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between rounded-lg gap-4">
-      <h1>web-push-with-firebase demo</h1>
+      <h1>web-push-with-firebase demo1</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
     </main>

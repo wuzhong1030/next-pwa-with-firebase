@@ -31,9 +31,9 @@ const useFcmToken = () => {
     }
   };
 
-  // useEffect(() => {
-  //   retrieveToken();
-  // }, []);
+  useEffect(() => {
+    retrieveToken();
+  }, []);
 
   return { token, retrieveToken, notificationPermissionStatus };
 };
