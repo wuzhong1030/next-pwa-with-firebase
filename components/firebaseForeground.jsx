@@ -23,7 +23,8 @@ export default function FcmTokenComp() {
   return (
     <div>
       <button onClick={retrieveToken}>retrieveToken</button>
-      <h1>token: {token}</h1>
+      <h1>token: </h1>
+      <textarea value={token} name="textarea" id="textarea"></textarea>
       <h3>notificationPermissionStatus: {notificationPermissionStatus}</h3>
     </div>
   );
