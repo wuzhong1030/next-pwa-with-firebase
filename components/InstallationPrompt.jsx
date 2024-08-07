@@ -7,14 +7,18 @@ const InstallationPrompt = (props) => {
   const { isStandalone } = useUserAgent();
 
   useEffect(() => {
-    import("@khmyznikov/pwa-install");
+    import("@khmyznikov/pwa-install").then(() => {
+        pwaInstallRef.current?.showDialog(true)
+    })
   });
 
   return (
-    <div className={`${isStandalone ? "hidden" : "block"}`}>
+    <div className={`${!isStandalone ? "block" : "hidden"}`}>
       <pwa-install
         ref={pwaInstallRef}
         manifest-url="/manifest.json"
+        manual-apple="true"
+        manual-chrome="true"
         description={`Install ${siteConfig.name} to your device.`}
       ></pwa-install>
       <button
