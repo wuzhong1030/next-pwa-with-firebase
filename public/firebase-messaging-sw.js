@@ -44,7 +44,14 @@ messaging.setBackgroundMessageHandler(function (payload) {
       }
     })
     .then(() => {
-      return self.registration.showNotification("my notification title");
+      // return self.registration.showNotification("my notification title");
+      console.log("[firebase-messaging-sw.js] Received background message ", payload);
+      const notificationTitle = payload.notification.title;
+      const notificationOptions = {
+        body: payload.notification.body,
+        icon: "./icons/icon-48x48.png",
+      };
+      self.registration.showNotification(notificationTitle, notificationOptions);
     });
   return promiseChain;
 });
