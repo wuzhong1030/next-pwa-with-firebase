@@ -12,12 +12,11 @@ export default function Home() {
   // const [messaging, setMessaging] = useState();
 
   useEffect(() => {
-    const messaging = getMessaging(firebaseApp);
+    // const messaging = getMessaging(firebaseApp);
     // setMessaging(messaging);
-
-    onMessage(messaging, () => {
-      setMsg("fuck.....");
-    });
+    // onMessage(messaging, () => {
+    //   setMsg("fuck.....");
+    // });
   }, []);
 
   useEffect(() => {
@@ -35,10 +34,7 @@ export default function Home() {
         // console.log("Received a message from service worker:", event.data);
         // // 处理收到的消息
         // alert(`Message from service worker: ${event.data.msg}`);
-        new Notification("Service Worker Message", {
-          body: "xxxxxx",
-          icon: "/icons/icon-48x48.png", // 可选：通知图标
-        });
+        setMsg("fuck");
       });
 
       const onUpdateReady = (registration) => {
