@@ -124,9 +124,7 @@ export default function Home() {
       <h1>web-push-with-firebase demo2</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
-      {/* {isStandalone !== null ? isStandalone ? null : <InstallationPrompt /> : null} */}
-      {/* {isStandalone ? null : <InstallationPrompt />} */}
-      {isStandalone === null ? null : isStandalone ? null : <InstallationPrompt />}
+      <InstallationPrompt />
     </main>
   );
 }

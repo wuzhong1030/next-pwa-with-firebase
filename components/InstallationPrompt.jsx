@@ -1,15 +1,17 @@
 import { useRef, useEffect } from "react";
 import { siteConfig } from "@/lib/site-config";
+import useUserAgent from "@/hooks/useUserAgent";
 
 const InstallationPrompt = (props) => {
   const pwaInstallRef = useRef(null);
+  const { isStandalone } = useUserAgent();
 
   useEffect(() => {
     import("@khmyznikov/pwa-install");
   });
 
   return (
-    <>
+    <div className={`${isStandalone ? "hidden" : "block"}`}>
       <pwa-install
         ref={pwaInstallRef}
         manifest-url="/manifest.json"
@@ -21,7 +23,7 @@ const InstallationPrompt = (props) => {
       >
         Instructions
       </button>
-    </>
+    </div>
   );
 };
 
