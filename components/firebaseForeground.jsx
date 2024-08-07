@@ -6,7 +6,7 @@ import firebaseApp from "@/lib/firebase";
 import useFcmToken from "@/hooks/useFcmToken";
 
 export default function FcmTokenComp() {
-  const { token, notificationPermissionStatus } = useFcmToken();
+  const { token, retrieveToken, notificationPermissionStatus } = useFcmToken();
 
   useEffect(() => {
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
@@ -22,6 +22,7 @@ export default function FcmTokenComp() {
 
   return (
     <div>
+      <button onClick={retrieveToken}>retrieveToken</button>
       <h1>token: {token}</h1>
       <h3>notificationPermissionStatus: {notificationPermissionStatus}</h3>
     </div>
