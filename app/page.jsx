@@ -125,7 +125,8 @@ export default function Home() {
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
       {/* {isStandalone !== null ? isStandalone ? null : <InstallationPrompt /> : null} */}
-      {isStandalone ? null : <InstallationPrompt />}
+      {/* {isStandalone ? null : <InstallationPrompt />} */}
+      {isStandalone === null ? null : isStandalone ? null : <InstallationPrompt />}
     </main>
   );
 }
