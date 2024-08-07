@@ -37,7 +37,7 @@ export default function Home() {
         // console.log("Received a message from service worker:", event.data);
         // // 处理收到的消息
         // alert(`Message from service worker: ${event.data.msg}`);
-        setMsg("fuck");
+        setMsg("messaging push");
       });
 
       const onUpdateReady = (registration) => {
@@ -124,7 +124,7 @@ export default function Home() {
       <h1>web-push-with-firebase demo1</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
-      {isStandalone !== null && isStandalone ? <InstallationPrompt /> : null}
+      {isStandalone !== null && isStandalone ? null : <InstallationPrompt />}
     </main>
   );
 }
