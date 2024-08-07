@@ -17,8 +17,6 @@ const InstallationPrompt = (props) => {
       <pwa-install
         ref={pwaInstallRef}
         manifest-url="/manifest.json"
-        manual-apple="true"
-        manual-chrome="true"
         description={`Install ${siteConfig.name} to your device.`}
       ></pwa-install>
       <button
