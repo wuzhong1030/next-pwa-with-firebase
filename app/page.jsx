@@ -14,13 +14,13 @@ export default function Home() {
   const { isStandalone } = useUserAgent();
   // const [messaging, setMessaging] = useState();
 
-  useEffect(() => {
-    // const messaging = getMessaging(firebaseApp);
-    // setMessaging(messaging);
-    // onMessage(messaging, () => {
-    //   setMsg("fuck.....");
-    // });
-  }, []);
+  // useEffect(() => {
+  //   // const messaging = getMessaging(firebaseApp);
+  //   // setMessaging(messaging);
+  //   // onMessage(messaging, () => {
+  //   //   setMsg("fuck.....");
+  //   // });
+  // }, []);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
