@@ -69,7 +69,7 @@ export default function Home() {
         navigator.serviceWorker
           .register("/sw.js")
           .then((registration) => {
-            onUpdateReady(registration);
+            console.log("Registration successful, scope is:", registration.scope);
           })
           .catch((error) => {
             console.error("Error during service worker registration:", error);
@@ -125,7 +125,7 @@ export default function Home() {
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
       {/* {isStandalone !== null ? isStandalone ? null : <InstallationPrompt /> : null} */}
-      <InstallationPrompt />
+      {isStandalone ? null : <InstallationPrompt />}
     </main>
   );
 }
