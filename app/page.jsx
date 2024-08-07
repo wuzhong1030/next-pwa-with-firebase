@@ -22,14 +22,14 @@ export default function Home() {
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("./firebase-messaging-sw.js")
-        .then(function (registration) {
-          console.log("Registration successful, scope is:", registration.scope);
-        })
-        .catch(function (err) {
-          console.log("Service worker registration failed, error:", err);
-        });
+      // navigator.serviceWorker
+      //   .register("./firebase-messaging-sw.js")
+      //   .then(function (registration) {
+      //     console.log("Registration successful, scope is:", registration.scope);
+      //   })
+      //   .catch(function (err) {
+      //     console.log("Service worker registration failed, error:", err);
+      //   });
 
       const onUpdateReady = (registration) => {
         registration.onupdatefound = () => {
@@ -112,7 +112,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between rounded-lg gap-4">
-      <h1>web-push-with-firebase fuck</h1>
+      <h1>web-push-with-firebase demo</h1>
       <FcmTokenComp />
       {/* <button onClick={notif}>Notification</button>
       <div>token: {token}</div>
