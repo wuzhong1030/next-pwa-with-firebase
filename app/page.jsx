@@ -32,9 +32,13 @@ export default function Home() {
       //   });
 
       navigator.serviceWorker.addEventListener("message", (event) => {
-        console.log("Received a message from service worker:", event.data);
-        // 处理收到的消息
-        alert(`Message from service worker: ${event.data.msg}`);
+        // console.log("Received a message from service worker:", event.data);
+        // // 处理收到的消息
+        // alert(`Message from service worker: ${event.data.msg}`);
+        new Notification("Service Worker Message", {
+          body: "xxxxxx",
+          icon: "/icons/icon-48x48.png", // 可选：通知图标
+        });
       });
 
       const onUpdateReady = (registration) => {
