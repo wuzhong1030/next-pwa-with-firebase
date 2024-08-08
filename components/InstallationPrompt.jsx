@@ -42,8 +42,7 @@ const InstallationPrompt = (props) => {
   }, []);
 
   return (
-    // <div className={`${!isStandalone ? "block" : "hidden"}`}>
-    <div>
+    <div className={`${isStandalone === false ? "block" : "hidden"}`}>
       <pwa-install
         ref={pwaInstallRef}
         manifest-url="/manifest.json"

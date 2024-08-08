@@ -47,8 +47,10 @@ export default function useUserAgent() {
       setIsMobile(!!isMobile);
 
       // Check if app is installed (if it's installed we wont show the prompt)
-      if (window.matchMedia("(display-mode: standalone)").matches) {
+      if (window.matchMedia("(display-mode: standalone)").matches || ("standalone" in navigator && navigator.standalone === true)) {
         setIsStandalone(true);
+      } else {
+        setIsStandalone(false);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
