@@ -2,7 +2,7 @@
  * @Author: stone.wu stone.wu@webeye.com
  * @Date: 2024-08-07 11:43:38
  * @LastEditors: stone.wu stone.wu@webeye.com
- * @LastEditTime: 2024-08-29 10:15:33
+ * @LastEditTime: 2024-08-29 10:18:11
  * @FilePath: /next-pwa-with-firebase/public/firebase-messaging-sw.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -54,7 +54,7 @@ messaging.setBackgroundMessageHandler(function (payload) {
     .then(() => {
       // return self.registration.showNotification("my notification title");
       console.log("[firebase-messaging-sw.js] Received background message ", payload);
-      const notificationTitle = payload.notification.title;
+      const notificationTitle = payload.notification.title + "yyyyy";
       const notificationOptions = {
         body: payload.notification.body + "xxxxxxx",
         icon: "./icons/icon-48x48.png",
