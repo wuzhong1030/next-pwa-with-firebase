@@ -121,7 +121,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between rounded-lg gap-4">
-      <h1>web-push-with-firebase demo4</h1>
+      <h1>web-push-with-firebase demo5</h1>
       <FcmTokenComp />
       <h5>msg: {msg}</h5>
       <InstallationPrompt />
