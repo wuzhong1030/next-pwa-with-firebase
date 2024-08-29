@@ -1,3 +1,11 @@
+/*
+ * @Author: stone.wu stone.wu@webeye.com
+ * @Date: 2024-08-29 09:23:27
+ * @LastEditors: stone.wu stone.wu@webeye.com
+ * @LastEditTime: 2024-08-29 09:26:19
+ * @FilePath: /next-pwa-with-firebase/next.config.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 const runtimeCaching = require("next-pwa/cache");
 
 // Configuration options for Next.js
@@ -13,7 +21,7 @@ const nextConfig = {
 const withPWA = require("next-pwa")({
   dest: "public", // Destination directory for the PWA files
   disable: process.env.NODE_ENV === "development", // Disable PWA in development mode
-  runtimeCaching,
+  // runtimeCaching,
   exclude: [/app-build-manifest.json/],
   // buildExcludes: [
   //   /chunks\/images\/.*$/, // Don't precache files under .next/static/chunks/images this improves next-optimized-images behaviour
@@ -26,10 +34,12 @@ const withPWA = require("next-pwa")({
   // ],
   register: false, // Register the PWA service worker
   skipWaiting: true, // Skip waiting for service worker activation
-  fallbacks: {
-    document: "/offline",
-  },
+  // fallbacks: {
+  //   document: "/offline",
+  // },
   cacheOnFrontEndNav: true,
+  reloadOnOnline: true,
+  extendDefaultRuntimeCaching: true,
 });
 
 // Export the combined configuration for Next.js with PWA support
