@@ -2,12 +2,12 @@
  * @Author: stone.wu stone.wu@webeye.com
  * @Date: 2024-08-07 11:43:38
  * @LastEditors: stone.wu stone.wu@webeye.com
- * @LastEditTime: 2024-08-29 11:20:56
+ * @LastEditTime: 2024-08-29 11:34:10
  * @FilePath: /next-pwa-with-firebase/public/firebase-messaging-sw.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-importScripts("https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/5.9.4/firebase-messaging.js");
+importScripts("https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging.js");
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,6 +28,18 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
+messaging.onBackgroundMessage(function (payload) {
+  console.log("[firebase-messaging-sw.js] Received background message ", payload);
+  // Customize notification here
+  const notificationTitle = "Background Message Title";
+  const notificationOptions = {
+    body: "Background Message body.",
+    icon: "/firebase-logo.png",
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
 // messaging.onBackgroundMessage((payload) => {
 //   console.log("[firebase-messaging-sw.js] Received background message ", payload);
 //   const { title, body, image, icon, ...restPayload } = payload.data;
@@ -45,30 +57,30 @@ const messaging = firebase.messaging();
 //   // self.registration.showNotification(notificationTitle, notificationOptions);
 // });
 
-messaging.setBackgroundMessageHandler(function (payload) {
-  return self.registration.showNotification("my notification title");
-  // const promiseChain = clients
-  //   .matchAll({
-  //     type: "window",
-  //     includeUncontrolled: true,
-  //   })
-  //   .then((windowClients) => {
-  //     for (let i = 0; i < windowClients.length; i++) {
-  //       const windowClient = windowClients[i];
-  //       windowClient.postMessage(payload);
-  //     }
-  //   })
-  //   .then(() => {
-  //     console.log("[firebase-messaging-sw.js] Received background message ", payload);
-  //     const notificationTitle = payload.notification.title + "yyyyy";
-  //     const notificationOptions = {
-  //       body: payload.notification.body + "xxxxxxx",
-  //       icon: "./icons/icon-48x48.png",
-  //     };
-  //     self.registration.showNotification(notificationTitle, notificationOptions);
-  //   });
-  // return promiseChain;
-});
+// messaging.setBackgroundMessageHandler(function (payload) {
+//   const promiseChain = clients
+//     .matchAll({
+//       type: "window",
+//       includeUncontrolled: true,
+//     })
+//     .then((windowClients) => {
+//       for (let i = 0; i < windowClients.length; i++) {
+//         const windowClient = windowClients[i];
+//         windowClient.postMessage(payload);
+//       }
+//     })
+//     .then(() => {
+//       // return self.registration.showNotification("my notification title");
+//       console.log("[firebase-messaging-sw.js] Received background message ", payload);
+//       const notificationTitle = payload.notification.title + "yyyyy";
+//       const notificationOptions = {
+//         body: payload.notification.body + "xxxxxxx",
+//         icon: "./icons/icon-48x48.png",
+//       };
+//       self.registration.showNotification(notificationTitle, notificationOptions);
+//     });
+//   return promiseChain;
+// });
 
 // self.addEventListener("notificationclick", function (event) {
 //   // do what you want
