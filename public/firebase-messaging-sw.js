@@ -1,19 +1,7 @@
-/*
- * @Author: stone.wu stone.wu@webeye.com
- * @Date: 2024-08-07 11:43:38
- * @LastEditors: stone.wu stone.wu@webeye.com
- * @LastEditTime: 2024-08-29 11:34:10
- * @FilePath: /next-pwa-with-firebase/public/firebase-messaging-sw.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-importScripts("https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging.js");
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js');
+ importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js');
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAZ5O1TyMSp_G7Aiqa_x8LXUBB7a9r3Ad8",
   authDomain: "next-pwa-with-firebase.vercel.app",
