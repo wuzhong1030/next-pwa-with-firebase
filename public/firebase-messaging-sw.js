@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: "G-NNGVWDYMDB",
 };
 
-const domain = self.location.origin;
+const domain = self.location.host;
   console.log('Domain:', domain);
 
 // Initialize Firebase
