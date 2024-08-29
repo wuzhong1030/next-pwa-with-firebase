@@ -12,6 +12,9 @@ const firebaseConfig = {
   measurementId: "G-NNGVWDYMDB",
 };
 
+const domain = self.location.origin;
+  console.log('Domain:', domain);
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
